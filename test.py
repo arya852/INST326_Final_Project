@@ -10,7 +10,6 @@ def ta_instance():
     """
     return TA()
 
-
 def test_display_office_hour_queue(capsys, ta_instance, monkeypatch):
     """ Test the 'display_office_hour_queue' method of the TA class."""
     # mock user input for testing
