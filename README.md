@@ -12,6 +12,16 @@ will be able to discern whether a student is attending the office hour for assis
 assignment or to seek clarification on the module. The system will also store the data, and
 professors will have an overview of the number of students who attended a specific office hour.
 
+# Installing and setting up the project
+
+Clone the project with the help of the Git SSH key.
+
+SSH Key: git@github.com:arya852/INST326_Final_Project.git
+
+Use the below code to install the project.
+
+`git clone git@github.com:arya852/INST326_Final_Project.git`
+
 To run the Program:
 (run the below command in the terminal or the CMD terminal)
 
