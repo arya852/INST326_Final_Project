@@ -5,22 +5,36 @@ import re
 
 
 class Professor:
+    """ Class representing a Professor in the INST326 Office Hour System.
+
+    Attributes:
+        db_manager (DatabaseManager): Instance of the DatabaseManager for database operations.
+        schedule (Schedule): Instance of the Schedule for managing office hour schedules.
+    
+    """
     def __init__(self):
+        """ Initializes a Professor instance with a DatabaseManager and a Schedule."""
         self.db_manager = DatabaseManager()
         self.schedule = Schedule()
 
     def main(self):
+        """ Main function for keeping Professor-specific actions."""
+
+        print()
         print("You selected Professor.")
         print("What would you like to do?")
+        print()
         print("1. View Office Hour Schedule")
         print("2. Access Attendance")
-
+        print()
         professor_input = input(
             "Enter the number corresponding to your choice: ")
 
         if professor_input == "1":
             self.schedule.display_schedule()
+            print()
         elif professor_input == "2":
+            print()
             print("How would you like to access attendance?")
             print("1. By Date")
             print("2. By Reason")
@@ -28,10 +42,15 @@ class Professor:
                 "Enter the number corresponding to your choice: ")
 
             if attendance_option == "1":
+                print()
                 date = input("Enter the date (YYYY-MM-DD): ")
+                print()
                 self.display_attendance_by_date(date)
+                print()
             elif attendance_option == "2":
+                print()
                 reason = input("Enter the reason: ")
+                print()
                 self.display_attendance_by_reason(reason)
             else:
                 print("Invalid input. Please enter a valid option.")
@@ -39,6 +58,12 @@ class Professor:
             print("Invalid input. Please enter a valid option.")
 
     def display_attendance_by_date(self, date):
+        """ Displays attendance information for a specific date.
+
+        Args:
+            date (str): The date in 'YYYY-MM-DD' format.
+        """
+
         try:
             with open('office_hour_queue.csv', 'r') as csvfile:
                 csv_reader = csv.reader(csvfile)
@@ -59,6 +84,11 @@ class Professor:
             print("Attendance file not found.")
 
     def display_attendance_by_reason(self, reason):
+        """ Displays attendance information for a specific reason.
+
+        Args:
+            reason (str): The reason for attendance.
+        """
         try:
             with open('office_hour_queue.csv', 'r') as csvfile:
                 csv_reader = csv.reader(csvfile)
@@ -80,4 +110,5 @@ class Professor:
             print("Attendance file not found.")
 
     def close_connection(self):
+        """ Close the database connection. """
         self.db_manager.close_connection()
