@@ -4,6 +4,12 @@ from professor import Professor
 
 
 def get_user():
+    """ Ask the user to select their role (Professor, TA, or Student) and returns an instance of the corresponding class.
+
+    Returns:
+        object: Instance of the selected user role class (Professor, TA, or Student).
+    """
+    
     print("\nWelcome to the INST326 Office Hour System!")
     print("\nPlease select the respective number if you are a:")
     print("1. Professor")
